@@ -1,0 +1,36 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/category">SHOP BY CATEGORY</a>
+      <a mat-list-item routerLink="/cart">SHOPING CART</a>
+      <a mat-list-item routerLink="/welcome">MY ORDERS</a>
+      <a mat-list-item routerLink="">NOTIFICATIONS</a>
+      <a mat-list-item routerLink="/uploadItem">UPLOAD ITEMS</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="flex-spacer"></div>
+      <span>     
+            <!-- <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">category</mat-icon>   -->
+            <mat-icon matBadge="22" matBadgePosition="above after" matBadgeColor="accent" class="mat-icon material-icons" role="img" aria-hidden="true">notifications</mat-icon>
+            <mat-icon matBadge="22" matBadgePosition="above after" matBadgeColor="accent" class="mat-icon material-icons" role="img" aria-hidden="true">shopping_cart</mat-icon>
+            <!-- <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">list_alt</mat-icon> -->
+      </span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

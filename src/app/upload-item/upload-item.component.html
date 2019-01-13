@@ -1,0 +1,37 @@
+<!-- <div class="container-fluid">
+	<div style="color: blue;">
+		<h1>Upload Items</h1>
+	</div>
+ 
+<h2>Content from Firebase</h2>
+	<div class="col-md-3">
+		<pre *ngFor="let item of items">{{item.description}}</pre>
+	</div> 
+</div> -->
+<div class="example-container">
+	<form class="col-md-3">
+		<div *ngIf="currentFileUpload" class="progress"></div>
+		<input id="fileToUpload" type="file" (change)="detectFiles($event)">
+		<button type="button" md-mini-fab [disabled]="!selectedFiles" (click)="uploadSingle()">
+				<mat-icon>cloud_upload</mat-icon>
+		</button>
+		<mat-form-field>
+			<input matInput id="itemName" placeholder="Item Name">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput id="description" placeholder="Item Description">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput id="price" placeholder="Unit Price">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput id="category" placeholder="Category">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput id="stock" placeholder="Stock Quantity">
+		</mat-form-field>
+		
+			<button mat-button id="Submit">Submit</button>
+		
+	</form>  
+</div>
